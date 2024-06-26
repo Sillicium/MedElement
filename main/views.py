@@ -1,3 +1,8 @@
-from django.shortcuts import render
+import base64
+import json
 
-# Create your views here.
+import requests
+
+from main.header.header import headers
+from main.properties.properties import BASE_URL
+
