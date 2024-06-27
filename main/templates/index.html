@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="{% url 'create_patient' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" style="margin-top: 15px"> SEND CREATE PATIENT REQUEST</button>
+</form>
+
+
+<form action="{% url 'create_reception' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" style="margin-top: 15px"> SEND CREATE RECEPTION REQUEST</button>
+</form>
+
+
+<form action="{% url 'search_reception' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" style="margin-top: 15px"> SEND SEARCH RECEPTION REQUEST</button>
+</form>
+
+
+<form action="{% url 'search_patient' %}" method="get">
+    <button type="submit" style="margin-top: 15px"> SEND SEARCH PATIENT REQUEST</button>
+</form>
+
+
+<form action="{% url 'time_table' %}" method="get">
+    <button type="submit" style="margin-top: 15px"> SEND TIME TABLE REQUEST</button>
+</form>
+
+
+<form action="{% url 'select_specialties' %}" method="get">
+    {% csrf_token %}
+    <button type="submit" style="margin-top: 15px"> SEND SELECT SPECIALTIES REQUEST</button>
+</form>
+
+
+</body>
+</html>

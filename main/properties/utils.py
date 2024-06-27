@@ -5,6 +5,16 @@ import requests
 from main.header.header import headers
 
 
+def create_python_script(file_name, data):
+    with open(f'{file_name}.py', 'w') as script_file:
+        script_file.write("# Auto-generated script\n\n")
+        for key, value in data.items():
+            if isinstance(value, str):
+                script_file.write(f'{key} = "{value}"\n')
+            else:
+                script_file.write(f'{key} = {value}\n')
+
+
 # def create_response_json_file(file_name, filtered_response):
 #     with open(f'{file_name}.json', 'w') as json_file:
 #         json.dump(filtered_response, json_file, indent=4)
@@ -25,6 +35,7 @@ def response_result(response, file_name):
             print("Response JSON:")
             print(response_json)
 
+            # create_python_script(file_name, response_json)
             with open(f'{file_name}.json', 'w') as json_file:
                 json.dump([response_json], json_file, indent=4)
 
