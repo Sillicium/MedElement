@@ -19,6 +19,9 @@ def create_patient_request():
     response = send_post_request(url, create_patient_data)
 
     if response.status_code in [200, 201]:
+
+        response_result(response, 'create_patient_response')
+
         return response.json()
     else:
         response.raise_for_status()
@@ -41,6 +44,9 @@ def search_patient_request():
     response = send_get_request(url, search_patient_data)
 
     if response.status_code in [200, 201]:
+
+        response_result(response, 'search_patient_response')
+
         return response.json()
     else:
         response.raise_for_status()
@@ -72,13 +78,15 @@ def create_reception_request():
     print(response.text)
 
     if response.status_code in [200, 201]:
+
+        response_result(response, 'create_reception_response')
+
         return response.json()
     else:
         response.raise_for_status()
 
 
 def search_reception_request():
-
     url = BASE_URL + "/v2/doctor/reception/search"
 
     begin_datetime = '11.06.2024'
@@ -92,6 +100,9 @@ def search_reception_request():
     response = send_post_request(url, date_time_data)
 
     if response.status_code in [200, 201]:
+
+        response_result(response, 'reception_search_response')
+
         return response.json()
     else:
         response.raise_for_status()
@@ -108,6 +119,9 @@ def get_time_table_request():
 
     response = send_get_request(url, search_patient_data)
     if response.status_code in [200, 201]:
+
+        response_result(response, 'get_time_table_response')
+
         return response.json()
     else:
         response.raise_for_status()
@@ -125,6 +139,9 @@ def select_specialties_request():
     response = send_get_request(url, select_specialties_data)
 
     if response.status_code in [200, 201]:
+
+        response_result(response, 'select_specialties_response')
+
         return response.json()
     else:
         response.raise_for_status()

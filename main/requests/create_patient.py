@@ -13,7 +13,6 @@ create_patient_data = {
     'middlename': middlename
 }
 
-
 response = send_post_request(url, create_patient_data)
 
 print(f"Status code: {response.status_code}")

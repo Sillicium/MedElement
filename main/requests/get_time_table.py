@@ -15,6 +15,4 @@ print(f"Status code: {response.status_code}")
 print("Response text:")
 print(response.text)
 
-
 response_result(response, 'get_time_table_response')
-

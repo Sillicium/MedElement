@@ -17,5 +17,4 @@ print(f"Status code: {response.status_code}")
 print("Response text:")
 print(response.text)
 
-
 response_result(response, 'reception_search_response')
