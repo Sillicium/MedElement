@@ -79,12 +79,14 @@ WSGI_APPLICATION = 'MedElement.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'MedElement',
-        'USER': 'postgres',
-        'PASSWORD': 'scram-sha-256',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'MedElement',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'scram-sha-256',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
     }
 }
 
@@ -125,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Добавьте эту строку, если у вас есть дополнительные пути для статических файлов
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     ]
