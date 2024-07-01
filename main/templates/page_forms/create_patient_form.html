@@ -4,6 +4,8 @@
 
 {% block form_action %}{% url 'create_patient' %}{% endblock %}
 
+{% block submit_method %}post{% endblock %}
+
 {% block form_fields %}
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>

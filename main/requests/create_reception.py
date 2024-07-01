@@ -1,6 +1,7 @@
 from main.properties.properties import BASE_URL
 from main.properties.utils import send_post_request, response_result
 
+
 url = BASE_URL + "/v1/doctor/reception"
 
 patient_code = 525816101719390250

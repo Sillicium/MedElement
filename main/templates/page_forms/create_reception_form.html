@@ -4,6 +4,8 @@
 
 {% block form_action %}{% url 'create_reception' %}{% endblock %}
 
+{% block submit_method %}post{% endblock %}
+
 {% block form_fields %}
     <label for="patient_code">Patient Code:</label>
     <input type="text" id="patient_code" name="patient_code" required>

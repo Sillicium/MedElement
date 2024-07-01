@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="{% block form_action %}#{% endblock %}" method="post">
+        <form action="{% block form_action %}#{% endblock %}" method="{% block submit_method %}#{% endblock %}">
             {% csrf_token %}
             {% block form_fields %}{% endblock %}
             <button type="submit" class="button">Submit</button>

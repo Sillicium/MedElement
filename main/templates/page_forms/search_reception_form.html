@@ -4,21 +4,23 @@
 
 {% block form_action %}{% url 'search_reception' %}{% endblock %}
 
+{% block submit_method %}post{% endblock %}
+
 {% block form_fields %}
     <label for="patient_code">Patient Code:</label>
-    <input type="text" id="patient_code" name="patient_code" required>
+    <input type="text" id="patient_code" name="patient_code">
     <br>
     <label for="specialist_code">Specialist Code:</label>
-    <input type="text" id="specialist_code" name="specialist_code" required>
+    <input type="text" id="specialist_code" name="specialist_code">
     <br>
     <label for="company_cabinet_code">Company Cabinet Code:</label>
-    <input type="text" id="company_cabinet_code" name="company_cabinet_code" required>
+    <input type="text" id="company_cabinet_code" name="company_cabinet_code">
     <br>
     <label for="starttime">Start Time:</label>
-    <input type="datetime-local" id="starttime" name="starttime">
+    <input type="date" id="starttime" name="starttime" required>
     <br>
     <label for="endtime">End Time:</label>
-    <input type="datetime-local" id="endtime" name="endtime">
+    <input type="date" id="endtime" name="endtime" required>
     <br>
     <label for="description">Description:</label>
     <textarea id="description" name="description"></textarea>

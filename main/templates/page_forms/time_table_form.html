@@ -5,6 +5,8 @@
 
 {% block form_action %}{% url 'time_table' %}{% endblock %}
 
+{% block submit_method %}get{% endblock %}
+
 {% block form_fields %}
   <h2>Time Table Form</h2>
   <form action="{% url 'time_table' %}" method="get">

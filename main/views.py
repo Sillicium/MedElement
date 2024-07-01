@@ -1,3 +1,4 @@
+import datetime
 import json
 
 import requests
@@ -116,17 +117,23 @@ def create_reception(request):
         specialist_code = request.POST.get('specialist_code')
         company_cabinet_code = request.POST.get('company_cabinet_code')
         start_time = request.POST.get('starttime')
-        end_time = request.POST.get('starttime')
+        end_time = request.POST.get('endtime')  # Assuming the key is 'endtime'
         description = request.POST.get('description')
 
         request_url = BASE_URL + "/v1/doctor/reception"
+
+        symbols_to_remove = "T"
+
+        for symbol in symbols_to_remove:
+            formatted_start_time = start_time.replace(symbol, " ")
+            formatted_end_time = end_time.replace(symbol, " ")
 
         date_time_data = {
             'patient_code': patient_code,
             'specialist_code': specialist_code,
             'company_cabinet_code': company_cabinet_code,
-            'starttime': start_time,
-            'endtime': end_time,
+            'starttime': formatted_start_time,
+            'endtime': formatted_end_time,
             'description': description
         }
 
@@ -148,19 +155,19 @@ def search_reception(request):
         specialist_code = request.POST.get('specialist_code')
         company_cabinet_code = request.POST.get('company_cabinet_code')
         start_time = request.POST.get('starttime')
-        end_time = request.POST.get('starttime')
+        end_time = request.POST.get('endtime')
         description = request.POST.get('description')
 
-        request_url = BASE_URL + "/v2/doctor/reception/search"
-
         date_time_data = {
-            'patient_code': patient_code,
-            'specialist_code': specialist_code,
-            'company_cabinet_code': company_cabinet_code,
-            'starttime': start_time,
-            'endtime': end_time,
-            'description': description
+            # 'patient_code': patient_code,
+            # 'specialist_code': specialist_code,
+            # 'company_cabinet_code': company_cabinet_code,
+            'begin_datetime': start_time,
+            'end_datetime': end_time,
+            # 'description': description
         }
+
+        request_url = BASE_URL + "/v2/doctor/reception/search"
 
         response = send_post_request(request_url, date_time_data)
 
@@ -178,9 +185,6 @@ def select_specialties(request):
     if request.method == 'GET':
         company_code = request.GET.get('company_code')
 
-        if not company_code:
-            return HttpResponse("Company code is required", status=400)
-
         select_specialties_data = {
             'company_code': company_code
         }
@@ -191,12 +195,14 @@ def select_specialties(request):
 
         if response.status_code in [200, 201]:
             response_json = response.json()
-            create_response_json_file('select_specialties_response.json', response_json)
-            return JsonResponse(response_json)
+            create_response_json_file('select_specialties_response', response_json)
+            return JsonResponse(response_json, safe=False)
         else:
             return HttpResponse(f"Error: Received status code {response.status_code}", status=response.status_code)
 
     return redirect('first_page')
+
+
 def time_table(request):
     if request.method == 'GET':
         date = request.GET.get('date')

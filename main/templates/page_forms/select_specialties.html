@@ -1,6 +1,13 @@
 {% extends 'form_template.html' %}
 
-{% block content %}
+
+{% block title %}Select Specialties{% endblock %}
+
+{% block form_action %}{% url 'select_specialties' %}{% endblock %}
+
+{% block submit_method %}get{% endblock %}
+
+{% block form_fields %}
   <h2>Select Specialties Form</h2>
   <form action="{% url 'select_specialties' %}" method="get">
     {% csrf_token %}
@@ -8,4 +15,9 @@
     <input type="text" id="company_code" name="company_code" required>
     <button type="submit">Submit</button>
   </form>
+
+    <form action="{% url 'first_page' %}">
+    <button type="submit">Back</button>
+  </form>
+
 {% endblock %}
