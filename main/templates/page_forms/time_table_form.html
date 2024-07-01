@@ -1,0 +1,19 @@
+{% extends 'form_template.html' %}
+
+
+{% block title %}Time Table{% endblock %}
+
+{% block form_action %}{% url 'time_table' %}{% endblock %}
+
+{% block form_fields %}
+  <h2>Time Table Form</h2>
+  <form action="{% url 'time_table' %}" method="get">
+    {% csrf_token %}
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <button type="submit">Submit</button>
+  </form>
+  <form action="{% url 'first_page' %}">
+    <button type="submit">Back</button>
+  </form>
+{% endblock %}

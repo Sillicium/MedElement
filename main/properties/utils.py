@@ -15,9 +15,9 @@ def create_python_script(file_name, data):
                 script_file.write(f'{key} = {value}\n')
 
 
-# def create_response_json_file(file_name, filtered_response):
-#     with open(f'{file_name}.json', 'w') as json_file:
-#         json.dump(filtered_response, json_file, indent=4)
+def create_response_json_file(file_name, filtered_response):
+    with open(f'{file_name}.json', 'w') as json_file:
+        json.dump([filtered_response], json_file, indent=4)
 
 
 def send_post_request(url, data):

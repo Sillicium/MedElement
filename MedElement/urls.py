@@ -15,17 +15,38 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.first_page),
-    path('create_patient/', views.send_create_patient_request, name='create_patient'),
-    path('search_patient/', views.send_search_patient_request, name='search_patient'),
-    path('create_reception/', views.send_create_reception_request, name='create_reception'),
-    path('search_reception/', views.send_search_reception_request, name='search_reception'),
-    path('time_table/', views.send_get_time_table_request, name='time_table'),
-    path('select_specialties/', views.send_select_specialties_request, name='select_specialties'),
+    path('', views.first_page, name='first_page'),
+
+
+    path('create_patient_form/', views.create_patient_form, name='create_patient_form'),
+    path('create_patient/', views.create_patient, name='create_patient'),
+
+
+    path('create_patient_form/', views.search_patient_form, name='search_patient_form'),
+    path('create_patient/', views.search_patient, name='search_patient'),
+
+
+    path('create_reception_form/', views.create_reception_form, name='create_reception_form'),
+    path('create_reception/', views.create_reception, name='create_reception'),
+
+
+    path('search_reception_form/', views.search_reception_form, name='search_reception_form'),
+    path('search_reception/', views.search_reception, name='search_reception'),
+
+
+    path('select_specialties_form/', views.select_specialties_form, name='select_specialties_form'),
+    path('select_specialties/', views.select_specialties, name='select_specialties'),
+
+
+    path('time_table_form/', views.time_table_form, name='time_table_form'),
+    path('time_table/', views.time_table, name='time_table'),
+
+
+
 ]

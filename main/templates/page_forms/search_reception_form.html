@@ -1,0 +1,25 @@
+{% extends 'form_template.html' %}
+
+{% block title %}Create Reception{% endblock %}
+
+{% block form_action %}{% url 'search_reception' %}{% endblock %}
+
+{% block form_fields %}
+    <label for="patient_code">Patient Code:</label>
+    <input type="text" id="patient_code" name="patient_code" required>
+    <br>
+    <label for="specialist_code">Specialist Code:</label>
+    <input type="text" id="specialist_code" name="specialist_code" required>
+    <br>
+    <label for="company_cabinet_code">Company Cabinet Code:</label>
+    <input type="text" id="company_cabinet_code" name="company_cabinet_code" required>
+    <br>
+    <label for="starttime">Start Time:</label>
+    <input type="datetime-local" id="starttime" name="starttime">
+    <br>
+    <label for="endtime">End Time:</label>
+    <input type="datetime-local" id="endtime" name="endtime">
+    <br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea>
+{% endblock %}
