@@ -1,14 +1,8 @@
-import datetime
-import json
-
-import requests
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 
 from main.properties.properties import BASE_URL
 from main.properties.utils import send_post_request, create_response_json_file, send_get_request
-from main.properties.utils_for_views_file import create_patient_request, search_patient_request, \
-    create_reception_request, search_reception_request, get_time_table_request, select_specialties_request
 
 
 def first_page(request):
